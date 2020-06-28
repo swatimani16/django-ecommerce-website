@@ -31,5 +31,6 @@ urlpatterns = [
      path('shoes/',user_views.shoes,name = 'shoes'),
      path('help/',user_views.help,name = 'help'),
      path('checkout/',core_views.checkout,name = 'checkout'),
+     path('products/',core_views.products,name = 'products'),
 ]
 
