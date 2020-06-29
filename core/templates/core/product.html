@@ -116,7 +116,19 @@
   <!-- Navbar -->
 
   <!--Main layout-->
-  <main class="mt-5 pt-4">
+  <main class="mt-9 pt-4">
+    <div class = "mt-5 pt-4">
+      {% if messages %}
+      {% for message in messages %}
+      <div class = "alert alert-{{ message.tags }} alert-dismissable fade show" role = "alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times; </span>
+        </button>
+      </div>
+      {% endfor %}
+  {% endif %}
+  </div>
     <div class="container dark-grey-text mt-5">
 
       <!--Grid row-->
@@ -161,6 +173,9 @@
 
             </form> -->
             <a href = "{{object.get_add_to_cart_url}}" class="btn btn-primary btn-md my-0 p" >Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
+            <a href = "{{object.get_remove_from_cart_url}}" class="btn btn-danger btn-md my-0 p" >Remove from cart
               <i class="fas fa-shopping-cart ml-1"></i>
             </a>
           </div>

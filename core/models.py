@@ -41,6 +41,10 @@ class Item(models.Model):
             'slug' : self.slug
         })
 
+    def get_remove_from_cart_url(self):
+        return reverse("remove_from_cart",kwargs = {
+            'slug' : self.slug
+        })
 #Shopping cart,everytime you sign in, it will fetch the order for that user(Linking between the item and the order!)
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete = models.CASCADE)
