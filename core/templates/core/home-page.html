@@ -107,7 +107,7 @@
             <a class="nav-link waves-effect" href="{% url 'checkout'%}">Checkout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'products'%}" >Products</a>
+            <a class="nav-link waves-effect" href="" >Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'help' %}" >Help</a>
@@ -327,6 +327,7 @@
             <div class="col-sm">
               <h3>Deals</h3><br>
               <!--Grid row-->
+              {% for item in object_list %}
         <div >
 
           <!--Grid column-->
@@ -348,19 +349,19 @@
               <!--Card content-->
               <div class="card-body text-center">
                 <!--Category & Title-->
-                <a href="{% url 'deals' %}" class="grey-text">
-                  <h5>Shirt</h5>
+                <a href="{{item.get_absolute_url}}" class="grey-text">
+                  <h5>{{ item.get_category_display }}</h5>
                 </a>
                 <h5>
                   <strong>
-                    <a href="{% url 'deals' %}" class="dark-grey-text">Denim shirt
-                      <span class="badge badge-pill danger-color">NEW</span>
+                    <a href="{{item.get_absolute_url}}" class="dark-grey-text">Denim shirt
+                      <span class="badge badge-pill {{item.get_label_display}}-color">NEW</span>
                     </a>
                   </strong>
                 </h5>
 
                 <h4 class="font-weight-bold blue-text">
-                  <strong>120$</strong>
+                  <strong>${{item.price}}</strong>
                 </h4>
 
               </div>
@@ -373,6 +374,7 @@
           <!--Grid column-->
 
             </div>
+            {% endfor %}
           </div>
         </div>
         

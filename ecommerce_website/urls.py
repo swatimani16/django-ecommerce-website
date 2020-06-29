@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 from user import views as user_views
 from django.contrib.auth import views as auth_views
-from core import views as core_views
+from core import views as core_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('accounts/',include('allauth.urls')),
-    path('',include('core.urls'), name = 'core'),
+    path('',include('core.urls')),
     path('register/', user_views.register,name='register'),
     path('login/', auth_views.LoginView.as_view(template_name = "user/login.html"),name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name = "user/logout.html"),name='logout'),
@@ -30,7 +30,6 @@ urlpatterns = [
      path('clothes/',user_views.clothes,name = 'clothes'),
      path('shoes/',user_views.shoes,name = 'shoes'),
      path('help/',user_views.help,name = 'help'),
-     path('checkout/',core_views.checkout,name = 'checkout'),
-     path('products/',core_views.products,name = 'products'),
+
 ]
 

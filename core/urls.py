@@ -1,5 +1,10 @@
 from django.urls import path,include
-from .views import item_list
+from .views import item_list, HomeView, ItemDetailView, checkout,add_to_cart
+
+
 urlpatterns = [
-    path('',item_list,name = 'item-list')
+    path('',HomeView.as_view(),name = 'item-list'),
+    path('checkout/',checkout,name = 'checkout'),
+    path('products/<slug>/',ItemDetailView.as_view(),name = 'products'),
+    path('add-to-cart/<slug>/',add_to_cart,name = 'add-to-cart'),
 ]

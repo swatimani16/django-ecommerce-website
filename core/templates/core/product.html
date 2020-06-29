@@ -77,7 +77,7 @@
             <a class="nav-link waves-effect" href="{% url 'checkout'%}">Checkout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'products'%}" >Products</a>
+            <a class="nav-link waves-effect" href="" >Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'help' %}" >Help</a>
@@ -138,21 +138,12 @@
 
             <div class="mb-3">
               <a href="">
-                <span class="badge purple mr-1">Category 2</span>
-              </a>
-              <a href="">
-                <span class="badge blue mr-1">New</span>
-              </a>
-              <a href="">
-                <span class="badge red mr-1">Bestseller</span>
+                <span class="badge purple mr-1">{{object.get_category_display}}</span>
               </a>
             </div>
 
             <p class="lead">
-              <span class="mr-1">
-                <del>$200</del>
-              </span>
-              <span>$100</span>
+              <span>${{object.price}}</span>
             </p>
 
             <p class="lead font-weight-bold">Description</p>
@@ -161,15 +152,17 @@
               sint voluptatibus!
               Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
 
-            <form class="d-flex justify-content-left">
+            <!-- <form class="d-flex justify-content-left">
               <!-- Default input -->
-              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+              <!-- <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+              <a href = ""><button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
+              </button></a>
 
-            </form>
-
+            </form> -->
+            <a href = "{{object.get_add_to_cart_url}}" class="btn btn-primary btn-md my-0 p" >Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
           </div>
           <!--Content-->
 
